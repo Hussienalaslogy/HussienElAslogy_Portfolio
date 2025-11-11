@@ -167,12 +167,13 @@
         }
 
         .about-left {
-            flex: 1 1 300px;
+            flex: 1 1 400px;
             text-align: left;
         }
 
         .about-right {
-            flex: 2 1 500px;
+            flex: 1.4 1 550px; /* كان flex: 2 1 600px تقريبا */
+           /* يحد من عرض النص */
         }
 
         .about-photo {
@@ -425,6 +426,75 @@
             }
 
 
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem; /* المسافة بين كل سطر */
+        }
+
+        .skill-row {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: nowrap; /* يمنعهم يكسروا على سطر تاني */
+        }
+
+            .skill-row span {
+                background: var(--accent);
+                color: #fff;
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                font-size: 0.9rem;
+                transition: background 0.3s;
+                white-space: nowrap; /* يمنع الكلمة نفسها من الانقسام */
+            }
+
+                .skill-row span:hover {
+                    background: var(--primary);
+                }
+
+
+        .skill-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.2rem;
+        }
+
+        .main-skill span {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 1rem;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0, 120, 215, 0.3);
+        }
+
+        .sub-skill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.6rem;
+            margin-left: 1.5rem; /* مسافة بادئة بسيطة */
+        }
+
+            .sub-skill-row span {
+                background: var(--accent);
+                color: #ddd;
+                padding: 0.4rem 0.9rem;
+                border-radius: 15px;
+                font-size: 0.85rem;
+                transition: background 0.3s;
+            }
+
+                .sub-skill-row span:hover {
+                    background: var(--primary);
+                    color: #fff;
+                }
+
+
+
+
 
     </style>
 </head>
@@ -464,13 +534,46 @@
                     <ul class="info">
                         <li><strong>Name:</strong> Hussien El Aslogy</li>
                         <li><strong>Profile:</strong> Backend Developer</li>
-                        <li><strong>Email:</strong> <a href="mailto:volta2008@gmail.com">volta2008@gmail.com</a></li>
+                        <li><strong>Email:</strong> <a href="mailto:Hussien.Elaslogy@gmail.com">Hussien.Elaslogy@gmail.com</a></li>
                         <li><strong>Phone:</strong> +966 54 574 1831</li>
                     </ul>
                 </div>
 
+                <div class="skills-right">
+                    <div class="skill">
+                        <p><strong>C#</strong> — Core Language Expertise</p>
+                        <div class="bar"><span style="width:95%"></span></div>
+                    </div>
+
+                    <div class="skill">
+                        <p><strong>WPF</strong> — Desktop Applications</p>
+                        <div class="bar"><span style="width:45%"></span></div>
+                    </div>
+
+                    <div class="skill">
+                        <p><strong>ASP.NET Core</strong> — RESTful APIs, Razor Pages (WebApp)</p>
+                        <div class="bar"><span style="width:95%"></span></div>
+                    </div>
+
+                    <div class="skill">
+                        <p><strong>SQL DataBases</strong> — Using EF Core </p>
+                        <div class="bar"><span style="width:90%"></span></div>
+                    </div>
+
+                    <div class="skill">
+                        <p><strong>Firestore</strong> — Real-Time Logging & Monitoring</p>
+                        <div class="bar"><span style="width:75%"></span></div>
+                    </div>
+
+                    <div class="skill">
+                        <p><strong>.NET MAUI</strong> — Cross-Platform UI (Basic Usage)</p>
+                        <div class="bar"><span style="width:30%"></span></div>
+                    </div>
+                </div>
 
             </div>
+
+      
 
 
             <!-- Right Column -->
@@ -481,10 +584,17 @@
                     and high-performance systems for multi-branch organizations. I focus on designing clean RESTful APIs,
                     integrating SQL Server databases, and implementing real-time monitoring using Firebase / Firestore.
                 </p>
+
+                <p>
+                    Coming from an accounting background, I have a clear understanding of what accountants expect from their systems.
+                    This helps me design practical and reliable accounting applications that fit real business needs.
+                </p>
+
                 <p>
                     I value performance, security, and maintainable code. My workflow revolves around automation,
                     synchronization, and seamless integration across distributed systems.
                 </p>
+
             </div>
         </div>
     </section>
@@ -498,20 +608,70 @@
             <div class="skills-left">
 
                 <div class="skills-list">
-                    <span>C#</span><span>.NET 9</span><span>ASP.NET Core API</span>
-                    <span>Entity Framework Core</span><span>SQL Server</span><span>JWT / 2FA Auth</span>
-                    <span>Firebase / Firestore</span><span>WinForms</span><span>REST API Design</span>
-                    <span>SmarterASP Hosting</span><span>LINQ</span><span>JSON Integration</span>
+                    <div class="skill-group">
+                        <div class="main-skill"><span>C#</span></div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="main-skill"><span>WPF</span></div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="main-skill"><span>ASP.NET Core RESTful APIs</span></div>
+                        <div class="sub-skill-row">
+                            <span>JWT / 2FA Auth</span>
+                            <span>TOTP Auth</span>
+                            <span>Rate Limiter</span>
+                            <span>Middlewares</span>
+                            <span>Users & Roles Management System</span>
+                            <span>Swagger</span>
+                            <span>Static Files</span>
+                        </div>
+                    </div>
+
+
+                    <div class="skill-group">
+                        <div class="main-skill"><span>ASP.NET Core Razor Pages</span></div>
+                    </div>
+
+
+                    <div class="skill-group">
+                        <div class="main-skill"><span>SQL Server</span></div>
+                        <div class="sub-skill-row">
+                            <span>Entity Framework Core</span>
+                            <span>LINQ</span>
+                        </div>
+                    </div>
+
+
+                    <div class="skill-group">
+                        <div class="main-skill"><span>Firebase / Firestore</span></div>
+                        <div class="sub-skill-row">
+                            <span>RealTime Logging</span>
+                            <span>RealTime Monitoring</span>
+
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="main-skill"><span>JSON Integration</span></div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="main-skill"><span>Shared Hosting</span></div>
+                    </div>
+
+                    
                 </div>
+
+
+
             </div>
 
-            <div class="skills-right">
-                <div class="skill"><p>C#</p><div class="bar"><span style="width:95%"></span></div></div>
-                <div class="skill"><p>ASP.NET Core</p><div class="bar"><span style="width:90%"></span></div></div>
-                <div class="skill"><p>SQL Server</p><div class="bar"><span style="width:85%"></span></div></div>
-                <div class="skill"><p>Entity Framework Core</p><div class="bar"><span style="width:80%"></span></div></div>
-                <div class="skill"><p>RESTful API Design</p><div class="bar"><span style="width:88%"></span></div></div>
-            </div>
+            
+
+
+
         </div>
     </section>
 
