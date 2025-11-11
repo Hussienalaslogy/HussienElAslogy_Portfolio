@@ -5,92 +5,200 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hussien El Aslogy | Backend Developer</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.6;
+        :root {
+            --primary: #0078D7;
+            --dark: #0E1117;
+            --light: #F3F4F6;
+            --accent: #1F2937;
         }
 
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.7;
+        }
+
+        /* ===== HEADER ===== */
         header {
-            background-color: #222;
+            position: relative;
             color: white;
             text-align: center;
-            padding: 2rem 0;
+            padding: 6rem 1rem 4rem;
+            background: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
         }
 
+            /* طبقة شفافة غامقة لتوضيح النص */
+            header::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.65);
+                z-index: 0;
+            }
+
+            header * {
+                position: relative;
+                z-index: 1;
+            }
+
+            header img {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                border: 3px solid #fff;
+                margin-bottom: 1rem;
+                box-shadow: 0 0 20px rgba(255,255,255,0.2);
+            }
+
             header h1 {
-                margin: 0;
-                font-size: 2rem;
+                font-size: 2.4rem;
+                margin: .3rem 0;
             }
 
             header p {
-                color: #ccc;
-                margin-top: .5rem;
+                font-size: 1.1rem;
+                color: #E0E0E0;
+                max-width: 600px;
+                margin: auto;
             }
 
+        /* ===== SECTIONS ===== */
         section {
-            padding: 3rem 10%;
+            max-width: 1200px; /* زودنا العرض الأقصى بدل 900 */
+            margin: 3rem auto; /* يفضل يفضل في المنتصف */
+            padding: 0 2.5rem; /* مسافة مناسبة من الحواف */
+            animation: fadeInUp .8s ease forwards;
         }
 
-        h2 {
-            border-bottom: 2px solid #444;
-            padding-bottom: .5rem;
-            margin-bottom: 1.5rem;
+
+            section h2 {
+                border-left: 5px solid var(--primary);
+                padding-left: .8rem;
+                margin-bottom: 1.5rem;
+                font-size: 1.5rem;
+            }
+
+        /* ===== ABOUT ===== */
+        #about p {
+            font-size: 1.05rem;
+            color: #ccc;
         }
 
-        .skills-list span {
-            display: inline-block;
-            background: #444;
-            color: white;
-            margin: .3rem;
-            padding: .4rem .8rem;
-            border-radius: 5px;
-            font-size: .9rem;
+        /* ===== SKILLS ===== */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
         }
 
+            .skills-list span {
+                background: var(--accent);
+                color: #fff;
+                padding: .5rem 1rem;
+                border-radius: 20px;
+                font-size: .9rem;
+                transition: background .3s;
+            }
+
+                .skills-list span:hover {
+                    background: var(--primary);
+                }
+
+        /* ===== PROJECTS ===== */
         .project {
-            background: white;
-            border: 1px solid #ddd;
-            padding: 1rem;
-            border-radius: 10px;
-            margin-bottom: 1rem;
+            background: var(--accent);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            transition: transform .3s, box-shadow .3s;
         }
+
+            .project:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+            }
 
             .project h3 {
                 margin-top: 0;
+                color: var(--primary);
             }
 
-        footer {
-            background: #222;
-            color: #aaa;
-            text-align: center;
-            padding: 1rem 0;
+            .project p {
+                color: #ddd;
+            }
+
+            .project a {
+                color: var(--primary);
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+                .project a:hover {
+                    text-decoration: underline;
+                }
+
+        /* ===== CONTACT ===== */
+        #contact p {
+            font-size: 1.05rem;
         }
 
-        a {
-            color: #0078d7;
+        #contact a {
+            color: var(--primary);
             text-decoration: none;
         }
 
-            a:hover {
+            #contact a:hover {
                 text-decoration: underline;
             }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0A0C10;
+            text-align: center;
+            color: #888;
+            padding: 1rem;
+            font-size: .9rem;
+            border-top: 1px solid #222;
+        }
+
+        /* ===== Animation on scroll ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeInUp .8s ease forwards;
+        }
     </style>
 </head>
 <body>
 
     <header>
+        <img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="Hussien El Aslogy">
         <h1>Hussien El Aslogy</h1>
-        <p>⚙️ Backend Developer & RESTful API Designer | C# & .NET</p>
+        <p>⚙️ Backend Developer & RESTful API Designer | C# · .NET · SQL Server</p>
     </header>
 
     <section id="about">
         <h2>About Me</h2>
         <p>
-            I’m a C# and .NET backend developer specializing in building secure multi-branch accounting systems
-            with online synchronization, RESTful APIs, and real-time monitoring via Firebase / Firestore.
+            I’m a passionate C# and .NET backend developer focused on building secure, scalable, and
+            high-performance systems for multi-branch organizations. I love designing RESTful APIs,
+            integrating SQL Server databases, and implementing real-time monitoring with Firebase / Firestore.
         </p>
     </section>
 
@@ -100,7 +208,7 @@
             <span>C#</span><span>.NET 9</span><span>ASP.NET Core API</span>
             <span>Entity Framework Core</span><span>SQL Server</span><span>JWT / 2FA Auth</span>
             <span>Firebase / Firestore</span><span>WinForms</span><span>REST API Design</span>
-            <span>JSON Integration</span><span>SmarterASP Hosting</span>
+            <span>SmarterASP Hosting</span><span>LINQ</span><span>JSON Integration</span>
         </div>
     </section>
 
@@ -110,8 +218,8 @@
         <div class="project">
             <h3>Dynamics Lite API</h3>
             <p>
-                A secure ASP.NET Core API built for online multi-branch accounting systems.
-                Features JWT authentication, role-based access, and real-time Firestore logging.
+                Secure ASP.NET Core API for multi-branch accounting systems with JWT authentication,
+                Firestore logging, and role-based authorization.
             </p>
             <a href="https://github.com/Hussienalaslogy" target="_blank">View on GitHub →</a>
         </div>
@@ -119,8 +227,8 @@
         <div class="project">
             <h3>Json Sync System</h3>
             <p>
-                A lightweight API for synchronizing customer and order data between remote WinForms clients
-                and central SQL Server using JSON comparison and auto-update logic.
+                A JSON-based synchronization engine connecting remote WinForms clients to a central SQL Server
+                through automatic differential updates and data versioning.
             </p>
             <a href="https://github.com/Hussienalaslogy" target="_blank">View on GitHub →</a>
         </div>
@@ -128,8 +236,8 @@
         <div class="project">
             <h3>Notifier (MAUI Mobile App)</h3>
             <p>
-                A .NET MAUI mobile app that listens to Firestore logs in real-time and notifies admins
-                about system errors, sync events, or unauthorized API access.
+                Cross-platform .NET MAUI app that listens to Firestore logs in real-time and notifies admins
+                about API events, synchronization progress, and system errors.
             </p>
             <a href="https://github.com/Hussienalaslogy" target="_blank">View on GitHub →</a>
         </div>
@@ -137,9 +245,9 @@
 
     <section id="contact">
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:volta2008@gmail.com">volta2008@gmail.com</a></p>
-        <p>Phone: <a href="tel:+966545741831">+966 54 574 1831</a></p>
-        <p>GitHub: <a href="https://github.com/Hussienalaslogy" target="_blank">github.com/Hussienalaslogy</a></p>
+        <p>📧 Email: <a href="mailto:volta2008@gmail.com">volta2008@gmail.com</a></p>
+        <p>📞 Phone: <a href="tel:+966545741831">+966 54 574 1831</a></p>
+        <p>💻 GitHub: <a href="https://github.com/Hussienalaslogy" target="_blank">github.com/Hussienalaslogy</a></p>
     </section>
 
     <footer>
